@@ -1,0 +1,34 @@
+*i3window_sw.txt* A short multi line description of your plugin
+
+===============================================================================
+CONTENTS                                                      *i3window_sw*
+
+    1. Intro .......................................... |i3window_sw-intro|
+    2. Requirements ............................ |i3window_sw-requirements|
+    3. Usage .......................................... |i3window_sw-usage|
+    4. Licence ...................................... |i3window_sw-licence|
+===============================================================================
+1. Intro                                                *i3window_sw-intro*
+
+I3window_sw is used to switch window between vim and i3-wm. I3-wm window is very easy to use, so sometimes it will be i3-wm window in the same page and use vim, but can not use vim to operate two files. Or vim opens two files but wants to separate the other workspaces, but needs to exit and open. So this plugin is used to save these cumbersome steps.
+
+2. Requirements                                  *i3window_sw-requirements*
+
+I3window_sw is written in python3, so be sure to install i3-py and vim.
+
+3. Usage                                                *i3window_sw-usage*
+
+separate window:
+    :Separate
+merge window:
+    :Merge
+
+You can add it to .vimrc file:
+map <F7> :Separate<CR>
+map <F8> :Merge<CR>
+
+4. Licence                                            *i3window_sw-licence*
+
+MIT License. Copyright (c) 2019 kuari
+
+vim:ft=help
