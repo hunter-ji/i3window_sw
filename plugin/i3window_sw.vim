@@ -16,8 +16,8 @@ python3 sys.path.append(vim.eval('expand("<sfile>:h")'))
 function! Separate()
 python3 << endOfPython
 
-from i3window_sw import I3window_switch
-I3window_switch.separate()
+from i3window_sw import separate
+separate()
 
 endOfPython
 endfunction
@@ -25,8 +25,8 @@ endfunction
 function! Merge()
 python3 << endOfPython
 
-from i3window_sw import I3window_switch
-I3window_switch.merge()
+from i3window_sw import merge
+merge()
 
 endOfPython
 endfunction
