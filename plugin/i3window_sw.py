@@ -45,21 +45,43 @@ def merge():
             clients[work_id]['workspace_id'] == current_work_id and \
             'vim ' in clients[work_id]['window_name']:
             current_win.append(work_id)
-    if len(current_win) != 1:
+    current_win_len = len(current_win)
+
+    def get_target_info(n=0):
+        target_win_id, target_win_name = current_win[n], clients[current_win[n]]['window_name']
+        try:
+            target_file_info = target_win_name.split(' ')
+            target_file_path = target_file_info[len(target_file_info)-1]
+            if not os.path.exists(target_file_path):
+                print('Error: The target file is not in the current folder.')
+                return
+        except:
+            print('Error: Fail to get target path of file.')
+            return
+        return {
+                "target_win_id" : target_win_id,
+                "target_file_path" : target_file_path
+        }
+
+    # merge window
+    def command(target_win_id, target_file_path):
+        i3.focus(con_id=target_win_id)
+        i3.kill()
+        i3.focus(con_id=current_win_id)
+        vim.command('sp %s'%target_file_path)
+
+    if current_win_len == 0:
         print('Error: It is not suitable in current workspace.')
         return
-    target_win_id, target_win_name = current_win[0], clients[current_win[0]]['window_name']
-    try:
-        target_file_info = target_win_name.split(' ')
-        target_file_path = target_file_info[len(target_file_info)-1]
-        if not os.path.exists(target_file_path):
-            print('Error: The target file is not in the current folder.')
+    elif current_win_len == 1:
+        target_info = get_target_info()
+        if target_info == None:
             return
-    except:
-        print('Error: Fail to get target path of file.')
-        return
-    # merge window
-    i3.focus(con_id=target_win_id)
-    i3.kill()
-    i3.focus(con_id=current_win_id)
-    vim.command('sp %s'%target_file_path)
+        target_win_id, target_file_path = target_info['target_win_id'], target_info['target_file_path']
+        command(target_win_id, target_file_path)
+    else:
+        target_file_paths = []
+        for i in range(1, current_win_len+1):
+            target_file_paths.append(get_target_info(i-1))
+        for n in target_file_paths:
+            command(n['target_win_id'], n['target_file_path'])
