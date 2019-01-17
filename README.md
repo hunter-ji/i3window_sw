@@ -24,11 +24,9 @@ Use your plugin manager of choice.
 
 ## Requirements
 
-I3window_sw is written in `python3`, so be sure to install `i3-py` and `vim`.
-```
-pip install i3-py
-pip install vim
-```
+* python3
+* i3-py
+* vim
 
 ## Usage
 
@@ -45,4 +43,4 @@ map <F8> :Merge<CR>
 
 ## Licence
 
-MIT License. Copyright (c) 2019 kuari
+MIT License. Copyright (c) 2019 kuari.
