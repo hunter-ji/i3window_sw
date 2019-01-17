@@ -63,4 +63,3 @@ def merge():
     i3.kill()
     i3.focus(con_id=current_win_id)
     vim.command('sp %s'%target_file_path)
->>>>>>> master
