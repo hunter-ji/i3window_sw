@@ -64,11 +64,11 @@ def merge():
         }
 
     # merge window
-    def command(target_win_id, target_file_path):
+    def command(target_win_id, target_file_path, command='sp'):
         i3.focus(con_id=target_win_id)
         i3.kill()
         i3.focus(con_id=current_win_id)
-        vim.command('sp %s'%target_file_path)
+        vim.command('{0} {1}'.format(command,target_file_path))
 
     if current_win_len == 0:
         print('Error: It is not suitable in current workspace.')
