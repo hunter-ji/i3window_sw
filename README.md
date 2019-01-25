@@ -2,9 +2,18 @@
 
 ## Intro
 
+I3window_sw用于在vim和i3-wm之间切换窗口。 I3-wm窗口非常容易使用，所以有时它会在同一页面中使用i3-wm窗口并使用vim，但不能使用vim来操作两个文件。或者vim打开两个文件但想要分隔其他工作区，但需要退出并打开。 所以这个插件用于保存这些繁琐的步骤。
+
+该插件目前功能有限，并且存在潜在的运行错误。欢迎提交pr以一起完善它。
+
 I3window_sw is used to switch window between vim and i3-wm. I3-wm window is very easy to use, so sometimes it will be i3-wm window in the same page and use vim, but can not use vim to operate two files. Or vim opens two files but wants to separate the other workspaces, but needs to exit and open. So this plugin is used to save these cumbersome steps.
 
 The plugin is currently limited in functionality and has potential runtime errors. You are welcome to submit pull requests to complete it.
+
+## Features
+
+* Separating one window of the vim into the i3-wm terminal
+* Merge one or more i3wm terminals into vim windows
 
 ## Installation
 
