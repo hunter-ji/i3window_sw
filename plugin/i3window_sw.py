@@ -10,7 +10,7 @@ except ImportError:
     print(ImportError)
 
 # separate window
-def separate(terminal=xfce4-terminal):
+def separate(terminal='xfce4-terminal'):
     if len(vim.buffers) == 1:
         print("Error: There is only one buffer")
     else:

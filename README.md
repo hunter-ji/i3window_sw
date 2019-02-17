@@ -43,6 +43,9 @@ Separate window:
     `:Separate`
 Merge window:
     `:Merge`
+Increase global settings:
+    `g:i3window_sw_terminal='xfce4-terminal/gnome-terminal'`
+If you are using xfce4-terminal, you don't need to set this variable. However, this plugin has only tested `xfce4-terminal` and `gnome-terminal` terminals.
 
 You can add it to .vimrc file:
 ```
