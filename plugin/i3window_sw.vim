@@ -15,9 +15,13 @@ python3 sys.path.append(vim.eval('expand("<sfile>:h")'))
 " --------------------------------
 function! Separate()
 python3 << endOfPython
-
 from i3window_sw import separate
-separate()
+try:
+    terminal = vim.eval("g:i3window_sw_terminal='xfce4-terminal'")
+
+    separate(terminal)
+except:
+    separate()
 
 endOfPython
 endfunction

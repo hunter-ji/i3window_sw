@@ -10,14 +10,14 @@ except ImportError:
     print(ImportError)
 
 # separate window
-def separate():
+def separate(terminal=xfce4-terminal):
     if len(vim.buffers) == 1:
         print("Error: There is only one buffer")
     else:
         b = vim.current.buffer
         path = b.name
         vim.command(":x")
-        os.system("xfce4-terminal -e 'vim {0}' --title 'vim {0}'".format(path))
+        os.system("{1} -e 'vim {0}' --title 'vim {0}'".format(path, terminal))
 
 # merge window func
 def merge():
