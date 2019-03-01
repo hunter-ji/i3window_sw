@@ -3,14 +3,20 @@
 import sys
 import os
 
+
 try:
     import vim
     import i3
 except ImportError:
     print(ImportError)
 
-# separate window
+
 def separate(terminal='xfce4-terminal'):
+    """separate window
+
+    :return: None
+    :rtype: None
+    """
     if len(vim.buffers) == 1:
         print("Error: There is only one buffer")
     else:
@@ -19,8 +25,14 @@ def separate(terminal='xfce4-terminal'):
         vim.command(":x")
         os.system("{1} -e 'vim {0}' --title 'vim {0}'".format(path, terminal))
 
-# merge window func
+
 def merge():
+    """merge window
+
+    :return: None
+    :rtype: None
+    """
+
     # get info of window and workspace
     clients = {}
     for ws_num in range(1,11):
@@ -36,6 +48,7 @@ def merge():
                     'window_name' : window['name']
                 }
             })
+
     # get info of target window
     current_win_id = i3.filter(nodes=[], focused=True)[0]['id']
     current_work_id = clients[current_win_id]['workspace_id']
@@ -47,7 +60,16 @@ def merge():
             current_win.append(work_id)
     current_win_len = len(current_win)
 
+
     def get_target_info(n=0):
+        """get information of the file opened by vim
+
+        :param n: id of target windows, the default is 0
+        :type n: int
+
+        :return: { "target_win_id" : 0, "target_file_path" : "/path/to/file" }
+        :rtype: dictionary
+        """
         target_win_id, target_win_name = current_win[n], clients[current_win[n]]['window_name']
         try:
             target_file_info = target_win_name.split(' ')
@@ -63,8 +85,19 @@ def merge():
                 "target_file_path" : target_file_path
         }
 
-    # merge window
+
     def command(target_win_id, target_file_path):
+        """merge window
+
+        :param target_win_id: id of target window
+        :type target_win_id: int
+
+        :param target_file_path: path of target file opened by vim
+        :type target_file_path: str
+
+        :return: return to stop when an error occurs
+        :rtype: None
+        """
         i3.focus(con_id=target_win_id)
         i3.kill()
         i3.focus(con_id=current_win_id)
