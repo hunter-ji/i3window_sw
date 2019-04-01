@@ -1,5 +1,7 @@
 # i3window_sw
 
+![GitHub](https://img.shields.io/github/license/Kuari/i3window_sw.svg?style=flat-square)
+
 ## Intro
 
 i3window_sw用于在vim和i3-wm之间切换窗口。i3-wm窗口非常容易使用，所以有时它会在同一页面中使用i3-wm窗口并使用vim，但不能使用vim来操作两个文件，或者vim打开两个文件但想要分隔到其他工作区，这都需要退出并再打开。所以这个插件用于保存这些繁琐的步骤。
