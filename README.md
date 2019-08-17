@@ -12,6 +12,10 @@ I3window_sw is used to switch window between vim and i3-wm. I3-wm window is very
 
 The plugin is currently limited in functionality and has potential runtime errors. You are welcome to submit pull requests to complete it.
 
+## Screenshot
+
+<video controls><source src="demo.mp4" type="video/mp4"></video>
+
 ## Features
 
 * Separating one window of the vim into the i3-wm terminal
